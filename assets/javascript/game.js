@@ -13,7 +13,7 @@ $(function () {
                 img: 'assets/images/luke.jpg',
                 sndName: 'luke',
                 cont: undefined,
-                health: 120,
+                health: 130,
                 pwr: { powerBase: 8, attack: 8, counter: 10 }
             },
             {
@@ -37,56 +37,56 @@ $(function () {
                 img: 'assets/images/emperor.jpg',
                 sndName: 'emperor',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 170,
+                pwr: { powerBase: 11, attack: 11, counter: 25 }
             },
             {
                 name: 'Boba Fett',
                 img: 'assets/images/boba.jpg',
                 sndName: 'boba',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 70,
+                pwr: { powerBase: 4, attack: 4, counter: 4 }
             },
             {
                 name: 'Yoda',
                 img: 'assets/images/yoda.jpg',
                 sndName: 'yoda',
                 cont: undefined,
-                health: 350,
-                pwr: { powerBase: 30, attack: 30, counter: 50 }
+                health: 175,
+                pwr: { powerBase: 11, attack: 11, counter: 25 }
             },
             {
                 name: 'Jabba the Hutt',
                 img: 'assets/images/jabba.jpg',
                 sndName: 'jabba',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 70,
+                pwr: { powerBase: 4, attack: 4, counter: 5 }
             },
             {
                 name: 'Leia',
                 img: 'assets/images/leia.jpg',
                 sndName: 'leia',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 150,
+                pwr: { powerBase: 7, attack: 7, counter: 7 }
             },
             {
                 name: 'Ewok',
                 img: 'assets/images/ewok.jpg',
                 sndName: 'ewok',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 60,
+                pwr: { powerBase: 3, attack: 3, counter: 3 }
             },
             {
                 name: 'R2D2',
                 img: 'assets/images/R2.jpg',
                 sndName: 'R2',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 165,
+                pwr: { powerBase: 7, attack: 7, counter: 12 }
             },
             {
                 name: 'Obi Wan Kenobe',
@@ -101,8 +101,8 @@ $(function () {
                 img: 'assets/images/trooper.jpg',
                 sndName: 'trooper',
                 cont: undefined,
-                health: 180,
-                pwr: { powerBase: 12, attack: 12, counter: 25 }
+                health: 65,
+                pwr: { powerBase: 4, attack: 4, counter: 4 }
             }
         ];
 
@@ -337,8 +337,10 @@ $(function () {
                 // YOU BEAT ALL OPPONENTS
                 if ($(playerChoose).children().length === 0) {
                     playSnd("complete");
-                    reset();
+                    main.empty();
                     instrUpdate('You Won!  GAME OVER!!');
+                    playerSlot.addClass('final');
+                    main.append(playerSlot);
                     main.append(instr);
                     restart_btn.addClass('restart-btn');
                     instr.append(restart_btn);
@@ -422,6 +424,7 @@ $(function () {
 
         function reset() {
             player = opponent = undefined;
+            playerSlot.removeClass('final');
             playerSlot.empty();
             opponentSlot.empty();
             comment.empty();
